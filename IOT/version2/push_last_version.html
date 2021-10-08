@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <title>版本推送服务</title>
+  <!-- Meta-Tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="keywords" content=""/>
+
+  <script>
+    addEventListener("load", function () {
+      setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  </script>
+  <!-- //Meta-Tags -->
+  <!-- Stylesheets -->
+  <link href="css/style.css" rel='stylesheet' type='text/css' />
+  <!--// Stylesheets -->
+  <!--fonts-->
+  <!-- title -->
+
+  <!-- body -->
+  <!--//fonts-->
+</head>
+
+<body>
+  <header>
+    <h1>DeviceVersion</h1>
+  </header>
+  <div class="w3ls-contact">
+
+    <!-- form starts here -->
+    <form action="version.php" method="post">
+      
+      <div class="agile-field-txt">
+        <label>
+          最高版本</label>
+          <?php $myfile = fopen("version.txt", "r") or die("Unable to open file!");$v = fgets($myfile);fclose($myfile);
+          echo"<input type='text' name='version' placeholder='不小于".$v."' required=''/>";?>
+      </div>
+
+      <div class="w3ls-contact  w3l-sub">
+        <input type="submit" value="推送最高版本到服务器">
+      </div>
+      <div class="copy-wthree">
+      <p>本站de版本推送服务</p>
+      </div>
+    </form>
+  </div>
+  <!-- //form ends here -->
+  <div class="copy-wthree">
+    <p>Copyright &copy; 2021.Kelevc All rights reserved. </p>
+  </div>
+</body>
+<!-- //Body -->
+
+</html>

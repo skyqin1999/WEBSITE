@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+	$("button").click(function(){
+		$.getJSON("https://www.write-down.tech/ebook/ebook.php",function(result){
+			$.each(result, function(i, field){
+				var line = "<tr>";
+				for(var key in field){
+					if(i == 0){
+						line+= "<th>";
+						line+= key;
+						line+= "</th>"
+					}else{
+						line+= "<td>";
+						if(key == "ISBN"){
+							line+= "<a href='http://oss.kelevc.cn/Ebook/";
+							line+= field[key];
+							line+= ".pdf'>";
+							line+= field[key];
+							line+= "</a>";
+						}else{
+							line+= field[key];
+						}
+						line+= "</td>"
+					}
+				}
+				line+= "</tr>";
+				$("table").append(line);
+			});
+		});
+	});
+});
+</script>
+</head>
+<body>
+
+<button>获取 JSON 数据</button>
+<table border="1">
+	
+</table>
+
+</body>
+</html>
